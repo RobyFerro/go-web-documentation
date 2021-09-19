@@ -250,3 +250,31 @@ func (c *SampleController) Main(db *gorm.DB) {
     }
 }
 ```
+
+### Handle incoming request
+If you've validated the request within a validation structure you can access to request data simply including the
+`kernel.Request` value in method parameter. 
+This helps you to access to these values without explicitly decoding the incoming request.
+
+Data are exposed as `map[string]intefrace{}` type. 
+
+```go title="Access to request in Controller"
+// Main controller method
+func (c *SampleController) Main(db *gorm.DB, req kernel.Request) {
+    fmt.Println(req["name"]) // You can access to the incoming request payload with the `req` object
+    
+    var user model.User
+    if err := db.Find(&user).Error;err != nil {
+        gwf.ProcessError(err)
+    }
+}
+```
+
+:::warning
+Because data in `kernel.Request` object is `map[string]interface{}` every value has to be cast with the original type.
+
+```go title="Example of type casting"
+req["username"]          // This was originally a string
+req["username"].(string) // But you've explicitly cast to use it properly
+```
+:::
