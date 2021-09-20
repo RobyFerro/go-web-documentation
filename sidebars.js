@@ -37,7 +37,7 @@ module.exports = {
             type: 'category',
             label: 'Request lifecycle',
             collapsed: false,
-            items: ['routing', 'controller', 'validation']
+            items: ['routing', 'validation', 'controller']
         }
     ]
 };
