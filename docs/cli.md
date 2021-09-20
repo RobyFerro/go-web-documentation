@@ -1,8 +1,7 @@
 ---
-sidebar_position: 5
-sidebar_label: CLI Commands
+sidebar_label: Commands
 ---
-# CLI Commands
+# Commands
 Alfred is the command-line interface included with Go-Web. It provides a number of helpful commands that can assist you while you build your application. You can compile Alfred by running `sudo make build-cli` in your project root.
 ```
 $ ./alfred show:commands
