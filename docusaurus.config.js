@@ -4,8 +4,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 // With JSDoc @type annotations, IDEs can provide config autocompletion
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 (module.exports = {
-  title: 'Go-Web',
-  tagline: 'An MVC Framework written in Go',
+  title: 'Go-Web Project',
+  tagline: 'A lightweight framework for Golang',
   url: 'https://RobyFerro.github.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
