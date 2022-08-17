@@ -11,7 +11,7 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-          <h1 className="hero__title">Build an <b>optimized</b> web services <b>quickly</b>, focus on what matter</h1>
+          <h1 className="hero__title">Build an <b>optimized</b> microservices <b>quickly</b>, focus on what matter</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link

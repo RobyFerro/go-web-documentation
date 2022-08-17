@@ -14,6 +14,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   organizationName: 'RobyFerro', // Usually your GitHub org/user name.
   projectName: 'go-web', // Usually your repo name.
   trailingSlash: false,
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'id'],
+  },
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -44,6 +48,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           src: 'img/logo.png',
         },
         items: [
+          {
+            type: 'localeDropdown',
+            position: 'left',
+          },
           {
             type: 'doc',
             docId: 'intro',
