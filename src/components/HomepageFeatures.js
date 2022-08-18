@@ -1,30 +1,31 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './HomepageFeatures.module.css';
+import Translate from '@docusaurus/Translate';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: <Translate id="homepage.features.first.title">Ready to use</Translate>,
     description: (
-      <>
-          Go-Web adopts a “convention over configuration” approach similar to frameworks like Laravel ,Symfony and Rails.
-      </>
+      <Translate id="homepage.features.first.desc">
+        Everything you need to get started with Golang microservices is ready to use.
+      </Translate>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: <Translate id="homepage.features.second.title">Focus on what matters</Translate>,
     description: (
-      <>
-          Go-Web lets you focus on you code, and we&apos;ll do the chores.
-      </>
+      <Translate id="homepage.features.second.desc">
+         Spend your time writing code that really matters. Forget boilerplate code! 
+      </Translate>
     ),
   },
   {
-    title: 'Web service in a minute',
+    title: <Translate id="homepage.features.third.title">IoC Container ready!</Translate>,
     description: (
-      <>
-          With Go-Web you can create a simple web service in a minute
-      </>
+      <Translate id="homepage.features.third.desc">
+        Configure your services and inject your dependencies in your controller! 
+      </Translate>
     ),
   },
 ];

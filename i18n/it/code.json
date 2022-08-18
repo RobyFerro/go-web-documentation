@@ -186,5 +186,33 @@
   "homepage.title": {
     "message": "Crea microservizi in Golang, concentrantodi solo su quello che davvero ti serve",
     "description": "The title of the homepage"
+  },
+  "homepage.subtitle":{
+    "message": "Go-Web è un framework per lo sviluppo di microservizi web che permette il rapido sviluppo di applicazioni sicure e veloci senza sacrificare flessibilità, usabilità e tipizzazione.",
+    "description": "The subtitle of the homepage"
+  },
+  "homepage.features.first.title": {
+    "message": "Pronto all'uso",
+    "description": "The title of the first feature"
+  },
+  "homepage.features.first.desc":{
+    "message": "Tutto ciò che ti serve per la creazione di un microservizio in Golang.",
+    "description": "The description of the first feature"
+  },
+  "homepage.features.second.title": {
+    "message": "Concentrati su ciò che conta",
+    "description": "The title of the second feature"
+  },
+  "homepage.features.second.desc":{
+    "message": "Concentrati sulla scrittura della tua logica. Dimenticati del codice Boilerplate!",
+    "description": "The description of the second feature"
+  },
+  "homepage.features.third.title": {
+    "message": "IoC Container pronti all'uso!",
+    "description": "The title of the second feature"
+  },
+  "homepage.features.third.desc":{
+    "message": "Configura i tuoi servizi e inietta le dipendenze nei tuoi controller.",
+    "description": "The description of the second feature"
   }
 }
