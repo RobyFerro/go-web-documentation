@@ -6,18 +6,30 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 import HomepageFeatures from '../components/HomepageFeatures';
 
+import Translate, {translate} from '@docusaurus/Translate';
+
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-          <h1 className="hero__title">Build an <b>optimized</b> microservices <b>quickly</b>, focus on what matter</h1>
+        <h1 className="hero__title">
+          <Translate
+            id="homepage.title"
+            description="Title of the homepage">
+              Build an optimized microservices quickly, focus on what matter
+            </Translate>
+        </h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Documentation
+            <Translate
+              id="header.button.docs"
+              description="Button to get started">
+              Start!
+            </Translate>
           </Link>
         </div>
       </div>
