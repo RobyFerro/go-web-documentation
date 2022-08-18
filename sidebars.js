@@ -26,12 +26,11 @@ module.exports = {
             collapsed: false,
             items: ['models', 'migration'],
         },
-        'front-end',
         {
             type: 'category',
             label: 'Advanced',
             collapsed: false,
-            items: ['cli', 'architecture'],
+            items: ['cli'],
         },
         {
             type: 'category',

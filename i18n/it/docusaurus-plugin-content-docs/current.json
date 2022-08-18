@@ -1,0 +1,22 @@
+{
+  "version.label": {
+    "message": "Avanti",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.Getting Started": {
+    "message": "Come iniziare",
+    "description": "The label for category Getting Started in sidebar docs"
+  },
+  "sidebar.docs.category.Database": {
+    "message": "Database",
+    "description": "The label for category Database in sidebar docs"
+  },
+  "sidebar.docs.category.Advanced": {
+    "message": "Concetti avanzati",
+    "description": "The label for category Advanced in sidebar docs"
+  },
+  "sidebar.docs.category.Request lifecycle": {
+    "message": "Flusso della richiesta",
+    "description": "The label for category Request lifecycle in sidebar docs"
+  }
+}
