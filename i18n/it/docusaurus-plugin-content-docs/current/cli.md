@@ -1,5 +1,5 @@
 ---
-sidebar_label: Commands
+sidebar_label: Comandi Alfred
 ---
 # Comandi CLI
 
@@ -30,7 +30,7 @@ In questo modo verrà creato un nuovo file `cmd/[command name].go` all'interno d
 
 Lanciando il comando `./alfred cmd:creare batman` verrà creato un nuovo file `cmd/batman.go` all'interno del pacchetto `app/console`:
 
-```go title="Novo comando"
+```go title="Nuovo comando"
 package console
 
 type Batman struct {
@@ -50,6 +50,7 @@ func (c *Batman) Run() {
     // Insert command logic
 }
 ```
+
 Come puoi vedere all'interno della figura il comando contiene due metodi principali:
 
 * Register: utilizzato da `./alfred show:commands` per visionare la descrizione del comando
