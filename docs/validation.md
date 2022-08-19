@@ -1,4 +1,5 @@
 # Validation
+
 Requests can be validated before begin handles. You can create a simple structure in the `app/http/validation` directory that should contain the content of a specific HTTP body request.
 
 For instance if you need to validate a request that expects a json object with two specific fields you can create something like the following.
@@ -10,7 +11,7 @@ type Credentials struct {
 }
 ```
 
-As you can see the above structure contains two fields: Username and Password. Each of these fields has two different tags. 
+As you can see the above structure contains two fields: Username and Password. Each of these fields has two different tags.
 
 * `json` tag is used to decode the raw json into a Golang struct. It used the standard `encoding/json` format.
 * `valid` tag is responsible for the request validation. There are several configurations that may help you to validate the request. Check the [govalidator](https://github.com/asaskevich/govalidator) documentation for more information.
@@ -32,4 +33,3 @@ var AuthRouter = register.HTTPRouter{
    },
 }
 ```
-
