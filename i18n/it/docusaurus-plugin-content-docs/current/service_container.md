@@ -1,10 +1,9 @@
 # Service container
 
-Il 'service container' è un potente strumento per gestire le dipendenze del nostro applicativo.
-La Dependency Injection (DI) è utilizzata per *iniettare* le dipendenze all'interno di controller e comandi CLI.
+I 'service container' sono potenti strumenti in grado di gestire le dipendenze del nostro applicativo.
 
 È possibile pensare ad un 'service container' come ad un contenitore dove al suo interno le dipendenze vengono risolte automaticamente.
-Questo significa che tutti i metodi che vengono eseguiti tramite questo contesto possono accedere a queste dipendenze.
+Questo significa che tutti i metodi che vengono eseguiti all'interno questo contesto possono accedere a queste dipendenze.
 
 Gli step necessari per utilizzare questo strumento sono:
 
@@ -44,7 +43,9 @@ func ConnectRedis() *redis.Client {
 }
 ```
 
-L'esempio di codice mostra come dovrebbe essere definito un servizio. Possiamo notare che il metodo `ConnectRedis()` restituisce un oggetto di tipo `*redis.Client` che, una volta registrato all'interno del service container, permetterà a controller e comandi di risolvere la dipendenza in automatico.
+L'esempio di codice mostra come dovrebbe essere definito un servizio.
+
+Possiamo notare che il metodo `ConnectRedis()` restituisce un oggetto di tipo `*redis.Client` che, una volta registrato all'interno del service container, permetterà a controller e comandi di risolvere la dipendenza in automatico.
 
 ## Registrazione di un servizio
 
