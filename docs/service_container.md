@@ -1,16 +1,16 @@
 # Service container
 
-Service contaners represent a powerfull tool to inject dependencies into your application.
-Methods executed in there can access to all the services registered in the service container.
+Service containers represent a powerful tool that injects dependencies into your application.
+Methods executed there can access all the services registered in the specific service container.
 
 To take advantage of this feature you should:
 
-* Defining a new services
-* Registering the service in the service container
+* Defining a new service
+* Registering the service in a service container
 
 ## Defining a new service
 
-All services have to be registrered inside the `service` package and implement a *factory* method that returns the dependency type.
+All services have to be registrered inside the `service` package and implement a *factory* method that returns specific dependency type.
 
 ```go title="Defining the 'Redis' service"
 package service
@@ -41,8 +41,8 @@ func ConnectRedis() *redis.Client {
 }
 ```
 
-The above example show use how to define a new service. You can notice that the `ConnectionRedis()` method returns an instance of the `*redis.Client` type.
-This is the type that will be automatically injected in our controller and commands.
+The above example show uses how to define a new service. You can notice that the `ConnectionRedis()` method returns an instance of the `*redis.Client` type.
+This is the type that will be automatically injected into our controller and commands.
 
 ## Registering the service
 
@@ -90,7 +90,7 @@ Represent a service container that will be continuously regenerated. Every depen
 
 ### SingletonServices
 
-Serived defined in this container persist across every requests. This is dependency are generated only once and then reused.
+Service defined in this container persist across every requests. This is dependency are generated only once and then reused.
 
 :::warning
 Every consumer of the service must be aware of the fact that the service is a singleton.
@@ -99,7 +99,7 @@ Every consumer of the service must be aware of the fact that the service is a si
 ### CommandServices
 
 Services defined in this container are executed only when the console is executed.
-You can register a new service by implementing the strucure `console.Service` present in the `console` package.
+You can register a new service by implementing the structure `console.Service` present in the `console` package.
 
 ```go title="Registering the 'Redis' service in CommandServices"
 package console
@@ -126,7 +126,7 @@ var (
 
 ## Utilizzo dei container
 
-Once you've defined your services you can use them in your application. You'll just need to define the type that is returned by one of our service as a paramater of:
+Once you've defined your services you can use them in your application. You'll just need to define the type that is returned by one of our services as a parameter of:
 
 * The `Run()` method present in a command
 * In methods implemented in our controller.
