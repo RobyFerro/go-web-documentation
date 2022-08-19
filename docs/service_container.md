@@ -124,7 +124,7 @@ var (
 )
 ```
 
-## Utilizzo dei container {#-utilizzo-dei-container}
+## Using container {#-using-container}
 
 Once you've defined your services you can use them in your application. You'll just need to define the type that is returned by one of our services as a parameter of:
 
