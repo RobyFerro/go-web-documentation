@@ -1,21 +1,18 @@
 # Service container
 
-Il 'service container' è un potente strumento per gestire le dipendenze del nostro applicativo.
-La Dependency Injection (DI) è utilizzata per *iniettare* le dipendenze all'interno di controller e comandi CLI.
+Service contaners represent a powerfull tool to inject dependencies into your application.
+Methods executed in there can access to all the services registered in the service container.
 
-È possibile pensare ad un 'service container' come ad un contenitore dove al suo interno le dipendenze vengono risolte automaticamente.
-Questo significa che tutti i metodi che vengono eseguiti tramite questo contesto possono accedere a queste dipendenze.
+To take advantage of this feature you should:
 
-Gli step necessari per utilizzare questo strumento sono:
+* Defining a new services
+* Registering the service in the service container
 
-* Definire un servizio
-* Registrarlo all'interno dello specifico container.
+## Defining a new service
 
-## Definizione di un servizio
+All services have to be registrered inside the `service` package and implement a *factory* method that returns the dependency type.
 
-Tutti i servizi devono essere definiti all'interno del pacchetto `service` e consistono in un metodo che restituisce un oggetto ti uno specifico tipo.
-
-```go title="Definizione del servizio 'Redis'"
+```go title="Defining the 'Redis' service"
 package service
 
 import (
@@ -44,13 +41,15 @@ func ConnectRedis() *redis.Client {
 }
 ```
 
-L'esempio di codice mostra come dovrebbe essere definito un servizio. Possiamo notare che il metodo `ConnectRedis()` restituisce un oggetto di tipo `*redis.Client` che, una volta registrato all'interno del service container, permetterà a controller e comandi di risolvere la dipendenza in automatico.
+The above example show use how to define a new service. You can notice that the `ConnectionRedis()` method returns an instance of the `*redis.Client` type.
+This is the type that will be automatically injected in our controller and commands.
 
-## Registrazione di un servizio
+## Registering the service
 
-Per poter registrare un servizio all'interno di un service container è necessario inserire il metodo creato in precedenza all'interno della struttura `foundation.BaseEntities` situate nel pacchetto register.
+Before we can use the service we have to register it in the service container.
+To do that we have to insert the method previously defined in the `foundation.BaseEntity` structure present in the `register` package.
 
-```go title="Registrazione del servizio 'Redis'"
+```go title="Registering the 'Redis' service"
 package register
 
 import (
@@ -70,7 +69,7 @@ func BaseEntities() foundation.BaseEntities {
    service.ConnectDB,
    service.ConnectElastic,
    service.ConnectMongo,
-   service.ConnectRedis, // <- registrazione del servizio 'Redis'
+   service.ConnectRedis, // <- register the 'Redis' service
   },
   SingletonServices: register.ServiceRegister{},
   CommandServices: console.Services,
@@ -79,31 +78,30 @@ func BaseEntities() foundation.BaseEntities {
 }
 ```
 
-Come è possibile notare, il servizio può essere registrato in tre modi:
+As you can see the 'ConnectRedis' service may be registered in three different ways:
 
-* All'interno del campo `Services`
-* All'interno del campo `SingletonServices`
-* Popolando la struttura `console.Services`
+* Inside the `Services` field
+* Inside the `SingletonServices` field
+* Inside the `console.Services` strucure
 
 ### Services
 
-Rappresenta il service container generato ad ogni richiesta in arrivo. Le dipendenze risolte al suo interno vengono rigenerate ogni volta che viene presa un carico una nuova richiesta.
+Represent a service container that will be continuously regenerated. Every dependency registered in this container will be generated each time a request is made.
 
 ### SingletonServices
 
-Rappresenta un service container che viene generato una sola volta all'avvio dell'applicazione.
-Tutte le dipendenze risolte al suo interno vengono generato all'avvio dell'applicazione.
+Serived defined in this container persist across every requests. This is dependency are generated only once and then reused.
 
 :::warning
-Tutti gli utilizzatori di questo service container utilizzeranno la stessa istanza.
+Every consumer of the service must be aware of the fact that the service is a singleton.
 :::
 
 ### CommandServices
 
-Consiste nel service container utilizzato da tutti i comandi eseguiti da CLI.
-È possibile configurare i servizi disponibili andando ad implementare la struttura `console.Services` presente all'interno del paccheto `console`.
+Services defined in this container are executed only when the console is executed.
+You can register a new service by implementing the strucure `console.Service` present in the `console` package.
 
-```go title="Registrazione servizii in console.Services"
+```go title="Registering the 'Redis' service in CommandServices"
 package console
 
 import (
@@ -120,7 +118,7 @@ var (
   service.ConnectDB,
   service.ConnectElastic,
   service.ConnectMongo,
-  service.ConnectRedis,
+  service.ConnectRedis, // <- register the 'Redis' service
   // ... OTHER SERVICES ...
   }
 )
@@ -128,13 +126,12 @@ var (
 
 ## Utilizzo dei container
 
-Una volta configurati i servizi possono essere consumati all'interno di un container o da un comando eseguito da CLI.
-Basterà inserire il tipo di oggetto ritornato dal servizio come:
+Once you've defined your services you can use them in your application. You'll just need to define the type that is returned by one of our service as a paramater of:
 
-* Parametro del metodo `Run()` del comando
-* Parametro dei metodi presenti all'interno dei controller.
+* The `Run()` method present in a command
+* In methods implemented in our controller.
 
-```go title="DI all'interno di un controller"
+```go title="DI inside a controller"
 // Dependency injection in controller
 package controller
 
@@ -159,7 +156,7 @@ func (c *SampleController) Main(db *gorm.DB) {
 }
 ```
 
-```go title="DI all'interno di un comando"
+```go title="DI inside a command"
 package console
 
 type Batman struct {
