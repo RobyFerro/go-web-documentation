@@ -1,4 +1,4 @@
-# Validation
+# Validation {#validation}
 
 Requests can be validated before begin handles. You can create a simple structure in the `app/http/validation` directory that should contain the content of a specific HTTP body request.
 

@@ -1,4 +1,4 @@
-# Models
+# Models {#models}
 
 In MVC frameworks models are responsible for the database interaction logic.
 Go-Web takes advantage of the GORM library to provide them (see [GORM](https://gorm.io/docs/models.html) documentation for more information about models).
@@ -31,7 +31,7 @@ Models: register.ModelRegister{
 
 :::
 
-## Seeding
+## Seeding {#-seeding}
 
 You can populate your database with test data implementing the `Seed` method.
 

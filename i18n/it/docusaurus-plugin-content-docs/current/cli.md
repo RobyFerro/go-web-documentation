@@ -1,12 +1,8 @@
----
-sidebar_label: Comandi Alfred
----
-# Comandi CLI
+# Comandi CLI {#cli}
 
 Alfred è la utility da linea di comando inclusa all'interno di Go-Web. Mette a disposizione dello sviluppatore molti comandi utili per velocizzare lo sviluppo. Puoi compilare Alfred tramite il comando `sudo make build-cli`.
 
 Lancia il comando `./alfred show:commands` per visualizzare i comandi disponibili.
-
 
 | Comandi disponivili | Descrizione |
 | ------------------------- | -------------------------------------- |
@@ -21,12 +17,10 @@ Lancia il comando `./alfred show:commands` per visualizzare i comandi disponibil
 | middleware:create [middleware name] | Creates new middleware |
 | generate:key | Generates new application key |
 
-## Crea comandi personalizzati
+## Crea comandi personalizzati {#-create-custom-commands}
 
 Puoi creare un nuovo comando Alfred eseguendo `./alfred cmd:create [command name]`.
 In questo modo verrà creato un nuovo file `cmd/[command name].go` all'interno del pacchetto `app/console` contente il codice necessario per la creazione di un nuovo comando.
-
-### Esempio
 
 Lanciando il comando `./alfred cmd:creare batman` verrà creato un nuovo file `cmd/batman.go` all'interno del pacchetto `app/console`:
 
@@ -68,7 +62,7 @@ var (
 )
 ```
 
-## Dependency injection
+## Dependency injection {#-dependency-injection}
 
 Come per i controller, Go-Web permette l'utilizzo di servizi presenti all'interno del container IoC. Dichiarando un servizio all'interno della variabile `Services` presente nel file `console/kernel.go`, questo servizio verrà iniettato all'interno del comando.
 

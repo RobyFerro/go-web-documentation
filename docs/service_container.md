@@ -1,4 +1,4 @@
-# Service container
+# Service container {#service-container}
 
 Service containers represent a powerful tool that injects dependencies into your application.
 Methods executed there can access all the services registered in the specific service container.
@@ -8,7 +8,7 @@ To take advantage of this feature you should:
 * Defining a new service
 * Registering the service in a service container
 
-## Defining a new service
+## Defining a new service {#-defining-a-new-service}
 
 All services have to be registrered inside the `service` package and implement a *factory* method that returns specific dependency type.
 
@@ -44,7 +44,7 @@ func ConnectRedis() *redis.Client {
 The above example show uses how to define a new service. You can notice that the `ConnectionRedis()` method returns an instance of the `*redis.Client` type.
 This is the type that will be automatically injected into our controller and commands.
 
-## Registering the service
+## Registering the service {#-registering-the-service}
 
 Before we can use the service we have to register it in the service container.
 To do that we have to insert the method previously defined in the `foundation.BaseEntity` structure present in the `register` package.
@@ -84,11 +84,11 @@ As you can see the 'ConnectRedis' service may be registered in three different w
 * Inside the `SingletonServices` field
 * Inside the `console.Services` strucure
 
-### Services
+### Services {#-services}
 
 Represent a service container that will be continuously regenerated. Every dependency registered in this container will be generated each time a request is made.
 
-### SingletonServices
+### SingletonServices {#-singletonservices}
 
 Service defined in this container persist across every requests. This is dependency are generated only once and then reused.
 
@@ -96,7 +96,7 @@ Service defined in this container persist across every requests. This is depende
 Every consumer of the service must be aware of the fact that the service is a singleton.
 :::
 
-### CommandServices
+### CommandServices {#-commandservices}
 
 Services defined in this container are executed only when the console is executed.
 You can register a new service by implementing the structure `console.Service` present in the `console` package.
@@ -124,7 +124,7 @@ var (
 )
 ```
 
-## Utilizzo dei container
+## Utilizzo dei container {#-utilizzo-dei-container}
 
 Once you've defined your services you can use them in your application. You'll just need to define the type that is returned by one of our services as a parameter of:
 

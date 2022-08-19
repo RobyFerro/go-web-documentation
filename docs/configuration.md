@@ -1,7 +1,4 @@
----
-sidebar_position: 3
----
-# Configuration
+# Configuration {#configuration}
 
 All of the configuration structures are stored in the config folder.
 You can create your custom configuration by adding a new structure in this package.

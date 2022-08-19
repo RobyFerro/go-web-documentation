@@ -1,7 +1,4 @@
----
-sidebar_position: 3
----
-# Configurazione
+# Configurazione {#configuration}
 
 Tutte le strutture di configurazione sono disponibili all'interno del paccetto "config".
 È possibile creare nuove cofigurazioni personalizzare aggiungendo nuove strutture all'interno del pacchetto.

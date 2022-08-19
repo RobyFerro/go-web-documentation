@@ -1,4 +1,4 @@
-# Controller
+# Controller {#controller}
 
 Begin an MVC framework, Go-Web uses controllers as request endpoints. Here developers can handle all the logic that has to be applied to the current request.
 
@@ -51,7 +51,7 @@ func (c *SampleController) Main() {
 
 To gain access to everything underlying a Go-Web controller, including HTTP request and response, a controller needs to extend `gwf.BaseController`.
 
-## Handle request
+## Handle request {#-handle-request}
 
 By extending `gwf.BaseController` controllers have access to the incoming request within the `Request` field. You can read the incoming request parameters, query strings, and body content by using the `c.Request` field.
 
@@ -66,7 +66,7 @@ func (c *SampleController) Main(db *gorm.DB) {
 `Request` field represent a pointer to the incoming `http.Request` object
 :::
 
-### Handle request body
+### Handle request body {#-handle-request-body}
 
 If you've validated the request within a validation structure you can access to request data simply including the
 `kernel.Request` value in method parameter.
@@ -115,7 +115,7 @@ fmt.Println(credentials.Username)
 
 :::
 
-## Handle response
+## Handle response {#-handle-response}
 
 Similar to `Request` the controller has the `Response` field that is used to handle the outgoing http response.
 
@@ -132,7 +132,7 @@ func (c *SampleController) Main() {
 `Response` field represent a pointer to the `http.ResponseWriter` object
 :::
 
-## Dependency injection
+## Dependency injection {#-dependency-injection}
 
 Since contoller are execued inside a IoC container, every dependency (if properly configured) can be injected into the controller.
 

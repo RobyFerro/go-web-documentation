@@ -1,4 +1,4 @@
-# Routing
+# Routing {#routing}
 
 Go-Web handles all HTTP requests within routers. Routers are simple structures that define every request/group of requests included in the web application. You can find and define all the routers in the `router` package.
 
@@ -12,7 +12,7 @@ type HTTPRouter struct {
 }
 ```
 
-## Route
+## Route {#-route}
 
 This structure is used to define a concrete HTTP endpoint and must be an instance of the register.Route structure.
 
@@ -42,7 +42,7 @@ As you can see in the figure above a Route structure is a simple structure that 
 | Validation | The validation of the route |
 | Middleware | The middlewares of the route |
 
-## Groups
+## Groups {#-groups}
 
 As the name explains, the Groups field contains a list of Group structure. This contains a list of routes grouped by a prefix.
 

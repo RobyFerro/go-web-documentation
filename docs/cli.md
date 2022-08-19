@@ -1,7 +1,4 @@
----
-sidebar_label: Commands
----
-# Commands
+# Commands {#cli}
 
 Alfred is the command-line interface included with Go-Web. It provides a number of helpful commands that can assist you while you build your application. You can compile Alfred by running `sudo make build-cli` in your project root.
 
@@ -24,7 +21,7 @@ Run the following command to see a list of available commands:
 | middleware:create [middleware name] | Creates new middleware |
 | generate:key | Generates new application key |
 
-## Create custom commands
+## Create custom commands {#-create-custom-commands}
 
 You can create a custom Alfred command by launching `./alfred cmd:create <command name>`.
 This will create a new .go file in the `app/console` folder that contains some boilerplate code.
@@ -72,7 +69,7 @@ var (
 )
 ```
 
-## Dependency injection
+## Dependency injection {#-dependency-injection}
 
 As for controller, Go-Web allows to use services that are configured into the IoC container (Dependency Injection) to be injected into your commands.
 

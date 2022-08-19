@@ -1,10 +1,8 @@
-# Controller
+# Controller {#controller}
 
 Essendo un framework MVC, Go-Web utilizza i controller per gestire le richieste HTTP. Al loro interno gli sviluppatori possono gestire ed implementare le logiche di business.
 
 È possibile creare un nuovo controller utilizzando il comando `./alfred controller:create [controller name]`.
-
-## Controller di esempio
 
 È possibile creare un nuovo controller lanciando il comando `./alfred controller:create sample`. Verrà creato un nuovo file `controller/sample.go` all'interno del pacchetto `app/controller`:
 
@@ -51,7 +49,7 @@ func (c *SampleController) Main() {
 
 Per poter avere accesso alla Response e al Request, è necessario che il controller estenda il `gwf.BaseController`.
 
-## Gestione della richiesta
+## Gestione della richiesta {#-handle-request}
 
 Estendendo il `gwf.BaseController` il controller ha accesso a tutti i valori presenti all'interno della richiesta HTTP in arrivo.
 È possibile leggere i valori tramite il campo `c.Request` (di tipo `*http.Request`).
@@ -67,7 +65,7 @@ func (c *SampleController) Main(db *gorm.DB) {
 Il campo `Request` è un puntatore a un oggetto di tipo `*http.Request`.
 :::
 
-### Gestire il corpo della richiesta
+### Gestire il corpo della richiesta {#-handle-request-body}
 
 Se la richiesta è stata validata tramite una struttura di validazione, puoi accedere al contenuto semplicemente includendo un parmetro di tipo `kernel.Request` all'interno del metodo. In questo modo è possibile leggere i valori della richiesta senza dover esplicitamente decodificare il contenuto all'interno di una struttura.
 
@@ -116,7 +114,7 @@ fmt.Println(credentials.Username)
 
 :::
 
-## Gestione della risposta
+## Gestione della risposta {#-handle-response}
 
 Come per la richiesta, è possibile accedere al contenuto della risposta tramite il campo `c.Response` (di tipo `*http.ResponseWriter`).
 
@@ -129,7 +127,7 @@ func (c *SampleController) Main() {
 }
 ```
 
-## Dependency injection
+## Dependency injection {#-dependency-injection}
 
 Dato che i controller sono eseguiti all'interno dei service container, tutti i metodi presenti sono in grado di risolvere i autonomia le dipendenze indicate al loro interno.
 

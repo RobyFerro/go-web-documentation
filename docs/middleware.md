@@ -1,4 +1,4 @@
-# Middleware
+# Middleware {#middleware}
 
 Middleware provides a convenient mechanism for inspecting and filtering  incomind and outcoming HTTP requests. Like controllers, a middleware can be created with Alfred. The command is `./alfred middleware:create [middleware name]`.
 
