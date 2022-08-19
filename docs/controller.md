@@ -1,8 +1,13 @@
 # Controller
-Begin an MVC framework, Go-Web uses controllers as request endpoints. Here developers can handle all the logic that has to be applied to the current request. You can create a controller by running the following command in console:
+
+Begin an MVC framework, Go-Web uses controllers as request endpoints. Here developers can handle all the logic that has to be applied to the current request.
+
+You can create a controller by running the following command in console:
+
 ```bash
 ./alfred controller:create sample
 ```
+
 Go-Web will create the .go file containing a controller named “SampleController” in the `/app/http/controller` directory.
 The content will be:
 
@@ -20,7 +25,8 @@ func (c *SampleController) Main(){
     // Insert your custom logic
 }
 ```
-When creating a controller, Go-Web automatically  add to it the function Main, which could be expanded with some logic, as shown in following code; controllers can be extended by adding new public functions.
+
+When creating a controller, Go-Web automatically add to it the function Main, which could be expanded with some logic, as shown in following code; controllers can be extended by adding new public functions.
 
 ```go title="SampleController with some logic"
 // Sample controller
@@ -45,33 +51,9 @@ func (c *SampleController) Main() {
 
 To gain access to everything underlying a Go-Web controller, including HTTP request and response, a controller needs to extend `gwf.BaseController`.
 
-Because the service container is used to “resolve” all controllers in Go-Web, developers can type-hint any of their dependency because they will be injected into the controller instance, as represented by the following code:
+## Handle request
 
-```go title="SampleController with DependencyInjection"
-// Dependency injection in controller
-package controller
-
-import (
-    "github.com/RobyFerro/go-web-framework" 
-    "github.com/RobyFerro/go-web/database/model" 
-    "github.com/jinzhu/gorm"
-)
-
-type SampleController struct{
-    gwf.BaseController
-}
-
-// Main controller method
-func (c *SampleController) Main(db *gorm.DB) {
-    var user model.User
-    if err := db.Find(&user).Error;err != nil {
-        gwf.ProcessError(err)
-    }
-}
-```
-
-### Handle request
-By extending `gwf.BaseController` controllers have access to the incoming request within the `Request` field.
+By extending `gwf.BaseController` controllers have access to the incoming request within the `Request` field. You can read the incoming request parameters, query strings, and body content by using the `c.Request` field.
 
 ```go title="Access to the incoming request"
 // Main controller method
@@ -84,7 +66,7 @@ func (c *SampleController) Main(db *gorm.DB) {
 `Request` field represent a pointer to the incoming `http.Request` object
 :::
 
-#### Handle request body
+### Handle request body
 
 If you've validated the request within a validation structure you can access to request data simply including the
 `kernel.Request` value in method parameter.
@@ -111,14 +93,30 @@ Because data in `kernel.Request` object is a `map[string]interface{}` every valu
 req["username"]          // This was originally a string
 req["username"].(string) // But you've explicitly cast to use it properly
 ```
+
 :::
 
 :::note
 You can always manually decode the request body manually in order to use the original struct.
+
+```go title="Decodifica manuale del contenuto della richiesta"
+type Credentials struct {
+ Username string `json:"username"`
+ Password string `json:"password"`
+}
+
+var credentials Credentials
+if err := tool.DecodeJsonRequest(c.Request, &data); err != nil {
+  log.Fatal(err)
+}
+
+fmt.Println(credentials.Username)
+```
+
 :::
 
+## Handle response
 
-### Handle response
 Similar to `Request` the controller has the `Response` field that is used to handle the outgoing http response.
 
 ```go title="Handle outgoing Response in controller"
@@ -133,3 +131,31 @@ func (c *SampleController) Main() {
 :::tip
 `Response` field represent a pointer to the `http.ResponseWriter` object
 :::
+
+## Dependency injection
+
+Since contoller are execued inside a IoC container, every dependency (if properly configured) can be injected into the controller.
+
+```go title="SampleController with DependencyInjection"
+// Dependency injection in controller
+package controller
+
+import (
+    "github.com/RobyFerro/go-web-framework" 
+    "github.com/RobyFerro/go-web/database/model" 
+    "github.com/jinzhu/gorm"
+)
+
+type SampleController struct{
+    gwf.BaseController
+}
+
+// Main controller method
+func (c *SampleController) Main(db *gorm.DB) {
+    // *gorm.DB is a dependency that is injected into the controller
+    var user model.User
+    if err := db.Find(&user).Error;err != nil {
+        gwf.ProcessError(err)
+    }
+}
+```

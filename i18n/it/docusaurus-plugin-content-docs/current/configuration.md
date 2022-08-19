@@ -4,7 +4,7 @@ sidebar_position: 3
 # Configurazione
 
 Tutte le strutture di configurazione sono disponibili all'interno del paccetto "config".
-È possibile creare nuove cofigurazioni personalizzare aggiungenfo nuove strutture all'interno del pacchetto.
+È possibile creare nuove cofigurazioni personalizzare aggiungendo nuove strutture all'interno del pacchetto.
 
 ```go title="File di configurazione customizzato"
 package config

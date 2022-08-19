@@ -12,7 +12,6 @@ I modelli generati tramite Alfred sono inseriti all'interno del paccheto `databa
 :::warning
 Tutti i modelli devono pessere registrati all'interno della struttura `BaseEntities` presente nel pacchetto `register`.
 Utilizzando Alfred questa operazione è eseguita in automatico ma, se si vuole creare un nuovo modello, è necessario registrarlo manualmente.
-:::
 
 ```go title="Registrazione di un nuovo modello"
 // Other BaseEntities structs...
@@ -25,6 +24,8 @@ Models: register.ModelRegister{
   // Here is where you’ve to register new models
 },
 ```
+
+:::
 
 ## Seeding
 

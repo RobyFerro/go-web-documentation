@@ -33,8 +33,8 @@ Il file "docker-compose.yml" contiente alcuni dei servizi che potrebbero essere 
 
 | Commands| Description |
 | ---------| ------------------------ |
-| make run | Avvia il server |
-| make build-cli | Compila l'Alfred CLI |
-| ./alfred show:commands | Visualizza i comandi disponibili |
-| make build | Compila il server |
-| ./goweb | Avvia il server (da eseguibile compilato) |
+| `make run` | Avvia il server |
+| `make build-cli` | Compila l'Alfred CLI |
+| `./alfred show:commands` | Visualizza i comandi disponibili |
+| `make build` | Compila il server |
+| `./goweb` | Avvia il server (da eseguibile compilato) |

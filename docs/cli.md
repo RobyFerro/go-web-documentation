@@ -2,9 +2,13 @@
 sidebar_label: Commands
 ---
 # Commands
+
 Alfred is the command-line interface included with Go-Web. It provides a number of helpful commands that can assist you while you build your application. You can compile Alfred by running `sudo make build-cli` in your project root.
-```
-$ ./alfred show:commands
+
+Run the following command to see a list of available commands:
+
+```bash
+-> ./alfred show:commands
 ```
 
 | Commands                  | Description                            |
@@ -21,12 +25,14 @@ $ ./alfred show:commands
 | generate:key | Generates new application key |
 
 ## Create custom commands
-You can create a custom Alfred command by launching `./alfred cmd:create <command name>`. 
+
+You can create a custom Alfred command by launching `./alfred cmd:create <command name>`.
 This will create a new .go file in the `app/console` folder that contains some boilerplate code.
 
+```bash
+-> ./alfred cmd:create batman
 ```
-$ ./alfred cmd:create batman
-```
+
 ```go title="New custom command"
 package console
 
@@ -47,11 +53,13 @@ func (c *Batman) Run() {
     // Insert command logic
 }
 ```
+
 As you can see in the figure 3 the commands contains two main methods:
+
 * Register: used by the show:commands command to expose signature and description
 * Run: contains the main logic of your custom command.
 
-The last thing that we need to do is register our custom command into the Go-Web register. 
+The last thing that we need to do is register our custom command into the Go-Web register.
 Open the `app/console/kernel.go` file and append a pointer to the new command in the CommandRegister struct:
 
 ```go title="Command register structure"
@@ -65,6 +73,20 @@ var (
 ```
 
 ## Dependency injection
-TODO
 
+As for controller, Go-Web allows to use services that are configured into the IoC container (Dependency Injection) to be injected into your commands.
 
+```go title="Dependency Injection in CLI command"
+type Seeder struct {
+ register.Command
+}
+
+func (c *Seeder) Register() {
+ c.Signature = "database:seed <name>"
+ c.Description = "Execute database seeder"
+}
+
+// Todo: Improve this method to run a single seeder
+func (c *Seeder) Run(db *gorm.DB, models register.ModelRegister) {
+ // Declare parameters of specific type to be injected
+}

@@ -1,21 +1,23 @@
 # Models
+
 In MVC frameworks models are responsible for the database interaction logic.
 Go-Web takes advantage of the GORM library to provide them (see [GORM](https://gorm.io/docs/models.html) documentation for more information about models).
-Alfred may even help you to create a new model, in fact you can run the following command to automatically generate and register a custom model.
 
+You can create a new model by running the following command:
+
+```bash
+$> ./alfred model:create [model name]
 ```
-$ ./alfred model:create <model name>
-```
 
-_Models generated with the model:create command are located in the `database/model` folder._
-
-Every model has to be registered in the foundation.BaseEntities structure located in the `register/register.go.`
-
-:::caution
-This operation is automatically handled by the Alfred procedure, but if you decide to manually create your model, you’ll need to manually register it.
+:::note
+Models generated with the `model:create` command are located in the `database/model` folder.
 :::
 
-```go title="Model registration structure in BaseEntities"
+:::warning
+Every model has to be registered in the foundation.BaseEntities structure located in the `register/register.go.`
+Alfred take care of this for you, but if you want to create a model manually you have to do it manually.
+
+```go title="Registrazione di un nuovo modello"
 // Other BaseEntities structs...
 //
 // Models will handle all application models
@@ -27,11 +29,15 @@ Models: register.ModelRegister{
 },
 ```
 
+:::
+
 ## Seeding
-You may create database seeding by implementing a Seed method in your model.
-This is responsible for filling the table “owned” by the current model with custom/random data.
-As you can see in the figure 4 the Seed method contains a loop (that determines how many records has to be inserted)
-that create and fill an instance of the current model. This instance is finally used to insert data into the database table.
+
+You can populate your database with test data implementing the `Seed` method.
+
+:::tip
+Go-Web uses [GoFakeIt library](https://github.com/brianvoe/gofakeit) to generate fake data.
+:::
 
 ```go title="Seeding method of a model"
 // Execute model seeding
@@ -53,14 +59,9 @@ func (User) Seed(db *gorm.DB) {
     }
 }
 ```
-:::tip
-Go-Web uses GoFakeIt  to generate random data, see library documentation to have more information about every implementation.
-:::
 
-Seeder may be executed by running the following command:
-```
-./alfred database:seed <model name>
-```
+Seeder may be executed by running the command `./alfred database:seed [model name]`.
+
 :::danger
 Omitting the model name the command will run every model seeder's.
 :::

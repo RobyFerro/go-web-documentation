@@ -28,7 +28,7 @@ module.exports = {
         },
         {
             type: 'category',
-            label: 'Advanced',
+            label: 'Advanced topics',
             collapsed: false,
             items: ['cli'],
         },
@@ -36,7 +36,7 @@ module.exports = {
             type: 'category',
             label: 'Request lifecycle',
             collapsed: false,
-            items: ['routing', 'validation', 'controller']
+            items: ['routing', 'middleware','validation', 'controller'],
         }
     ]
 };
