@@ -50,6 +50,7 @@ func (c *Batman) Run() {
     // Insert command logic
 }
 ```
+
 Come puoi vedere all'interno della figura il comando contiene due metodi principali:
 
 * Register: utilizzato da `./alfred show:commands` per visionare la descrizione del comando
