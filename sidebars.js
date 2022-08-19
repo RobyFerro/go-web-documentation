@@ -30,7 +30,7 @@ module.exports = {
             type: 'category',
             label: 'Advanced topics',
             collapsed: false,
-            items: ['cli'],
+            items: ['cli', 'service_container'],
         },
         {
             type: 'category',
