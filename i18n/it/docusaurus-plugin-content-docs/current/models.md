@@ -3,7 +3,7 @@
 Nel framework MVC i modello sono responsavili per dell'interazione con il database.
 Go-Web utilizza la libreria [GORM](https://gorm.io/docs/models.html) per gestire queste operazioni.
 
-È possibile creare nuovi modelli utilizzando il comando `./alfred model:create [model name]`.
+È possibile creare nuovi modelli utilizzando il comando `alfred model:create [model name]`.
 
 :::note
 I modelli generati tramite Alfred sono inseriti all'interno del paccheto `database/model`.
@@ -57,7 +57,7 @@ func (User) Seed(db *gorm.DB) {
 }
 ```
 
-I seeder possono essere eseguiti tramite il comando `./alfred database:seed [model name]`.
+I seeder possono essere eseguiti tramite il comando `alfred database:seed [model name]`.
 
 :::danger
 Se il nome modello non viene inserito, il comando verrà eseguito per tutti i modelli presenti nel pacchetto `database/model`.

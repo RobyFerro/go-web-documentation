@@ -20,10 +20,10 @@ Lancia il comando `alfred show:commands` per visualizzare i comandi disponibili.
 
 ## Crea comandi personalizzati {#-create-custom-commands}
 
-Puoi creare un nuovo comando Alfred eseguendo `./alfred cmd:create [command name]`.
+Puoi creare un nuovo comando Alfred eseguendo `alfred cmd:create [command name]`.
 In questo modo verrà creato un nuovo file `cmd/[command name].go` all'interno del pacchetto `app/console` contente il codice necessario per la creazione di un nuovo comando.
 
-Lanciando il comando `./alfred cmd:creare batman` verrà creato un nuovo file `cmd/batman.go` all'interno del pacchetto `app/console`:
+Lanciando il comando `alfred cmd:creare batman` verrà creato un nuovo file `cmd/batman.go` all'interno del pacchetto `app/console`:
 
 ```go title="Nuovo comando"
 package console
