@@ -4,7 +4,7 @@ Migrations are like version control for your database, allowing your team to eas
 Developers can creates new migration as follows:
 
 ```bash
-$> ./alfred migration:create [migration name]
+$> alfred migration:create [migration name]
 ```
 
 Alfred generates new migrations in the `/database/migration` directory.
@@ -17,7 +17,7 @@ The `*_up.sql` is responsible for doing stuff on our database and the `*_down.sq
 Migration process handles only unexecuted migrations and can be start by running the following command:
 
 ```bash
-$> ./alfred migration:up
+$> alfred migration:up
 ```
 
 This command runs the SQL statements present into every *_up.sql files.
@@ -27,7 +27,7 @@ This command runs the SQL statements present into every *_up.sql files.
 If you need to rollback some changes you can always execute database rollback. 
 
 ```bash
-$> ./alfred migration:rollback <steps>
+$> alfred migration:rollback <steps>
 ```
 
 Steps are meant as a migration batch. It means that you can choose to rollback one or more migrations simply changing the `steps` value.

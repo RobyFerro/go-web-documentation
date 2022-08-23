@@ -4,7 +4,7 @@ Go-Web handles all HTTP requests within routers. Routers are simple structures t
 
 Every router must be an instance of the `register.HTTPRouter` structure and should implement at least a Route or a Group.
 
-```go title="The HTTPRouter structure
+```go title="The HTTPRouter structure"
 // HTTPRouter contains Route and Group that defines a complete HTTP Router
 type HTTPRouter struct {
   Route  []Route

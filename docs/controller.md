@@ -5,7 +5,7 @@ Begin an MVC framework, Go-Web uses controllers as request endpoints. Here devel
 You can create a controller by running the following command in console:
 
 ```bash
-./alfred controller:create sample
+alfred controller:create sample
 ```
 
 Go-Web will create the .go file containing a controller named “SampleController” in the `/app/http/controller` directory.

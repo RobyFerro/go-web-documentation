@@ -1,11 +1,11 @@
 # Commands {#cli}
 
-Alfred is the command-line interface included with Go-Web. It provides a number of helpful commands that can assist you while you build your application. You can compile Alfred by running `sudo make build-cli` in your project root.
+Alfred is the command-line interface included with Go-Web. It provides a number of helpful commands that can assist you while you build your application. You can install Alfred by running `go install github.com/RobyFerro/go-web/cmd/alfred@latest`
 
 Run the following command to see a list of available commands:
 
 ```bash
--> ./alfred show:commands
+-> alfred show:commands
 ```
 
 | Commands                  | Description                            |
@@ -23,11 +23,11 @@ Run the following command to see a list of available commands:
 
 ## Create custom commands {#-create-custom-commands}
 
-You can create a custom Alfred command by launching `./alfred cmd:create <command name>`.
+You can create a custom Alfred command by launching `alfred cmd:create <command name>`.
 This will create a new .go file in the `app/console` folder that contains some boilerplate code.
 
 ```bash
--> ./alfred cmd:create batman
+-> alfred cmd:create batman
 ```
 
 ```go title="New custom command"
@@ -68,6 +68,11 @@ var (
     }
 )
 ```
+
+:::warning
+In order to use the newly created command, Alfred have to be updated.
+The `alfred update` command will update all registered commands.
+:::
 
 ## Dependency injection {#-dependency-injection}
 
