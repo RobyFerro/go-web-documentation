@@ -1,8 +1,9 @@
 # Comandi CLI {#cli}
 
-Alfred è la utility da linea di comando inclusa all'interno di Go-Web. Mette a disposizione dello sviluppatore molti comandi utili per velocizzare lo sviluppo. Puoi compilare Alfred tramite il comando `sudo make build-cli`.
+Alfred è la utility da linea di comando inclusa all'interno di Go-Web. Mette a disposizione dello sviluppatore molti comandi utili per velocizzare lo sviluppo. .
+Puoi installare Alfred eseguendo il comando `go install github.com/RobyFerro/cmd/alfred@latest`
 
-Lancia il comando `./alfred show:commands` per visualizzare i comandi disponibili.
+Lancia il comando `alfred show:commands` per visualizzare i comandi disponibili.
 
 | Comandi disponivili | Descrizione |
 | ------------------------- | -------------------------------------- |
@@ -47,7 +48,7 @@ func (c *Batman) Run() {
 
 Come puoi vedere all'interno della figura il comando contiene due metodi principali:
 
-* Register: utilizzato da `./alfred show:commands` per visionare la descrizione del comando
+* Register: utilizzato da `alfred show:commands` per visionare la descrizione del comando
 * Run: contiene la business logic del comando
 
 L'ultima cosa che devi fare è registrare il comando all'interno della struttura `CommandRegister` presente all'interno del pacchetto `app/console`.
@@ -61,6 +62,11 @@ var (
     }
 )
 ```
+
+:::warning
+Per poter utilizzare il nuovo comando, Alfred deve essere aggiornato.
+Esegui `alfred update` per aggiornare tutti i comandi presenti nell'applicazione
+:::
 
 ## Dependency injection {#-dependency-injection}
 
