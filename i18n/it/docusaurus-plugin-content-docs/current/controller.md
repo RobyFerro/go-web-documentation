@@ -2,9 +2,9 @@
 
 Essendo un framework MVC, Go-Web utilizza i controller per gestire le richieste HTTP. Al loro interno gli sviluppatori possono gestire ed implementare le logiche di business.
 
-È possibile creare un nuovo controller utilizzando il comando `./alfred controller:create [controller name]`.
+È possibile creare un nuovo controller utilizzando il comando `alfred controller:create [controller name]`.
 
-È possibile creare un nuovo controller lanciando il comando `./alfred controller:create sample`. Verrà creato un nuovo file `controller/sample.go` all'interno del pacchetto `app/controller`:
+È possibile creare un nuovo controller lanciando il comando `alfred controller:create sample`. Verrà creato un nuovo file `controller/sample.go` all'interno del pacchetto `app/controller`:
 
 ```go title="Nuovo controller"
 package controller

@@ -27,7 +27,7 @@ You can create a custom Alfred command by launching `alfred cmd:create <command 
 This will create a new .go file in the `app/console` folder that contains some boilerplate code.
 
 ```bash
--> ./alfred cmd:create batman
+-> alfred cmd:create batman
 ```
 
 ```go title="New custom command"

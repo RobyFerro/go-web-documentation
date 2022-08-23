@@ -3,7 +3,7 @@
 I middleware sono componenti atti ad intercettare le richieste in entrata e in uscita del server.
 Permettono di filtrare, modificare e analizzare i valori di input e output prima o dopo che essere state prese in carico da un controller.
 
-Il comando per creare un nuovo middleware è il seguente comando `./alfred middleware create [middleware name]`.
+Il comando per creare un nuovo middleware è il seguente comando `alfred middleware create [middleware name]`.
 Ad esempio, un middleware di dome "batman' può essere creato tramite il comando `./alfred middleware create batman`.
 
 Dopo averlo eseguito il nuovo middleware sarà disponibile nella cartella `app/http/batman.go`.

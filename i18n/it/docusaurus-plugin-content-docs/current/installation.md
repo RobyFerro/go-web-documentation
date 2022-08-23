@@ -27,5 +27,5 @@ Il file "docker-compose.yml" contiente alcuni dei servizi che potrebbero essere 
 | ---------| ------------------------ |
 | `make run` | Avvia il server |
 | `make build` | Compila il server |
-| `./alfred show:commands` | Visualizza i comandi disponibili |
+| `alfred show:commands` | Visualizza i comandi disponibili |
 | `./goweb` | Avvia il server (da eseguibile compilato) |
