@@ -2,13 +2,16 @@
 
 Begin an MVC framework, Go-Web uses controllers as request endpoints. Here developers can handle all the logic that has to be applied to the current request.
 
+## Create a controller
+
 You can create a controller by running the following command in console:
 
 ```bash
 alfred controller:create sample
 ```
 
-Go-Web will create the .go file containing a controller named “SampleController” in the `/app/http/controller` directory.
+Go-Web will create a .go file containing a controller named “SampleController” in the `/app/http/controller` directory.
+
 The content will be:
 
 ```go title="New SampleController"
@@ -26,7 +29,11 @@ func (c *SampleController) Main(){
 }
 ```
 
-When creating a controller, Go-Web automatically add to it the function Main, which could be expanded with some logic, as shown in following code; controllers can be extended by adding new public functions.
+When creating a controller, Go-Web automatically add to it the function `Main()`, which - as shown in following code- could be expanded with custom logic.
+
+:::tip
+Controllers can be extended by adding new methods.
+:::
 
 ```go title="SampleController with some logic"
 // Sample controller
@@ -50,6 +57,32 @@ func (c *SampleController) Main() {
 ```
 
 To gain access to everything underlying a Go-Web controller, including HTTP request and response, a controller needs to extend `gwf.BaseController`.
+
+## Registering a controller
+
+Once created, controllers have to be registered in the `register` package.
+
+```go title="Register a controller"
+package register
+
+// BaseEntities returns a struct that contains Go-Web base entities
+func BaseEntities() foundation.BaseEntities {
+    return foundation.BaseEntities{
+        // Controllers will handle all Go-Web controller
+        // Here is where you've to register your custom controller
+        Controllers: base_register.ControllerRegister{
+            base_register.ControllerRegisterItem{
+                Controller: &controller.UserController{}, // Here is where you can define a Controller
+                Modules: []base_register.DIModule{
+                    // DI Modules
+                },
+            },
+        },
+    }
+}
+```
+
+As you can see in the example above, Controller defined in the `BaseEntities()` method as a field of a `ControllerRegisterItem` structure.
 
 ## Handle request {#-handle-request}
 
@@ -78,7 +111,7 @@ Data are exposed as `map[string]interface{}` type.
 // Main controller method
 func (c *SampleController) Main(db *gorm.DB, req kernel.Request) {
     fmt.Println(req["name"]) // You can access to the incoming request payload with the `req` object
-    
+
     var user model.User
     if err := db.Find(&user).Error;err != nil {
         gwf.ProcessError(err)
@@ -115,7 +148,7 @@ fmt.Println(credentials.Username)
 
 :::
 
-## Handle response {#-handle-response}
+### Handle response {#-handle-response}
 
 Similar to `Request` the controller has the `Response` field that is used to handle the outgoing http response.
 
@@ -141,8 +174,8 @@ Since contoller are execued inside a IoC container, every dependency (if properl
 package controller
 
 import (
-    "github.com/RobyFerro/go-web-framework" 
-    "github.com/RobyFerro/go-web/database/model" 
+    "github.com/RobyFerro/go-web-framework"
+    "github.com/RobyFerro/go-web/database/model"
     "github.com/jinzhu/gorm"
 )
 
