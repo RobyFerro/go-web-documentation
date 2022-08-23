@@ -148,7 +148,7 @@ fmt.Println(credentials.Username)
 
 :::
 
-## Handle response {#-handle-response}
+### Handle response {#-handle-response}
 
 Similar to `Request` the controller has the `Response` field that is used to handle the outgoing http response.
 
