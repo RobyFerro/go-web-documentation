@@ -22,7 +22,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     [
       '@docusaurus/plugin-google-gtag',
       {
-        trackingID: 'G-5T2Y7CZ08Y',
+        trackingID: 'G-WWQ2Q8EH3T',
         anonymizeIP: true,
       },
     ],
