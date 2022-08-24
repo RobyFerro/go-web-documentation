@@ -13,7 +13,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   favicon: 'img/favicon.png',
   organizationName: 'RobyFerro', // Usually your GitHub org/user name.
   projectName: 'go-web', // Usually your repo name.
-  trailingSlash: false,
+  trailingSlash: true,
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -21,8 +21,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   presets: [
     [
       '@docusaurus/preset-classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         googleAnalytics: {
           trackingID: "G-5T2Y7CZ08Y",
         },
@@ -37,13 +36,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      }),
+      },
     ],
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
+    {
       navbar: {
         title: 'Go-Web',
         logo: {
@@ -101,5 +99,5 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
-    }),
+    },
 });
