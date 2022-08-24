@@ -22,6 +22,12 @@ module.exports = {
         },
         {
             type: 'category',
+            label: 'Request lifecycle',
+            collapsed: false,
+            items: ['routing', 'middleware','validation', 'controller'],
+        },
+        {
+            type: 'category',
             label: 'Database',
             collapsed: false,
             items: ['models', 'migration'],
@@ -31,12 +37,6 @@ module.exports = {
             label: 'Advanced topics',
             collapsed: false,
             items: ['cli', 'service_container'],
-        },
-        {
-            type: 'category',
-            label: 'Request lifecycle',
-            collapsed: false,
-            items: ['routing', 'middleware','validation', 'controller'],
-        }
+        } 
     ]
 };
