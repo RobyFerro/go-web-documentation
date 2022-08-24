@@ -20,11 +20,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   },
   plugins: [
     [
-      '@docusaurus/plugin-google-analytics',
+      '@docusaurus/plugin-google-gtag',
       {
-        trackingID: 'G-5T2Y7CZ08Y'
-      }
-    ]
+        trackingID: 'G-5T2Y7CZ08Y',
+        anonymizeIP: true,
+      },
+    ],
   ],
   presets: [
     [
