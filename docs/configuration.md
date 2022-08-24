@@ -1,5 +1,28 @@
 # Configuration {#configuration}
 
+## Server configuration
+
+You can customize server configuration by editing `GetServer()` method located in `config/server.go` file.
+
+```go title="Main Go-Web configuration"
+package config
+
+import "github.com/RobyFerro/go-web-framework/kernel"
+
+func GetSever() kernel.ServerConf {
+  return kernel.ServerConf{
+    Port:    8005,
+    SSL:     false,
+    SSLCert: "storage/certs/tls.crt",
+    SSLKey:  "storage/certs/tls.key",
+    Key:     "REPLACE_WITH_CUSTOM_APP_KEY",
+  }
+}
+
+```
+
+## Custom configurations
+
 All of the configuration structures are stored in the config folder.
 You can create your custom configuration by adding a new structure in this package.
 
@@ -14,7 +37,7 @@ type CustomConf struct {
 func CustomConf () *CustomConf  {
   return &CustomConf {
       Field1: "test",
-      Field2: 1 
+      Field2: 1
   }
 }
 ```
