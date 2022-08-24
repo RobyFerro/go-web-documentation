@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 (module.exports = {
   title: 'Go-Web Project',
   tagline: 'A lightweight framework for Golang',
-  url: 'https://RobyFerro.github.io',
+  url: 'https://goweb.ikdev.it',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -27,10 +27,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-        },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
