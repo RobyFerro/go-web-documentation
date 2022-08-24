@@ -18,16 +18,18 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     defaultLocale: 'en',
     locales: ['en'],
   },
+  plugins: [
+    [
+      '@docusaurus/plugin-google-analytics',
+      {
+        trackingID: 'G-5T2Y7CZ08Y'
+      }
+    ]
+  ],
   presets: [
     [
       '@docusaurus/preset-classic',
-      {
-        googleAnalytics: {
-          trackingID: "G-5T2Y7CZ08Y",
-        },
-        gtag: {
-          trackingID: "G-5T2Y7CZ08Y",
-        },
+      { 
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
