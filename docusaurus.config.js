@@ -23,13 +23,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       '@docusaurus/preset-classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        googleAnalytics: {
+          trackingID: "G-5T2Y7CZ08Y",
+        },
+        gtag: {
+          trackingID: "G-5T2Y7CZ08Y",
+        },
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-        },
-        googleAnalytics: {
-          trackingID: "G-5T2Y7CZ08Y",
-          anonymizeIP: true
         },
         blog: false,
         theme: {
