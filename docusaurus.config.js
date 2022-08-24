@@ -25,7 +25,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       ({
         googleAnalytics: {
           trackingID: "G-5T2Y7CZ08Y",
-          anonymizeIP: true
         },
         gtag: {
           trackingID: "G-5T2Y7CZ08Y",
