@@ -9,7 +9,7 @@ package config
 
 import "github.com/RobyFerro/go-web-framework/kernel"
 
-func GetSever() kernel.ServerConf {
+func GetServer() kernel.ServerConf {
   return kernel.ServerConf{
     Port:    8005,
     SSL:     false,
